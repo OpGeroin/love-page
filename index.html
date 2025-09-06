@@ -227,43 +227,11 @@
 
         <div class="stage">
             <div class="sheep-wrap" aria-hidden="true">
-                <!-- Friendly sheep SVG (cute, non-scary) -->
-                <svg class="sheep" viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                    role="img">
-                    <g transform="translate(10,6)">
-                        <ellipse cx="120" cy="78" rx="78" ry="48" fill="#fff" stroke="#f0f4f8" stroke-width="1.5" />
-                        <g>
-                            <circle cx="64" cy="48" r="18" fill="#fff" />
-                            <circle cx="96" cy="36" r="20" fill="#fff" />
-                            <circle cx="136" cy="34" r="22" fill="#fff" />
-                            <circle cx="170" cy="48" r="16" fill="#fff" />
-                        </g>
-                        <g transform="translate(42,68)">
-                            <ellipse cx="0" cy="0" rx="26" ry="20" fill="#fff7f8" stroke="#f2d6dd" stroke-width="1" />
-                            <circle cx="-8" cy="-4" r="5" fill="#111" />
-                            <circle cx="8" cy="-4" r="5" fill="#111" />
-                            <circle cx="-9.5" cy="-6.2" r="1.4" fill="#fff" />
-                            <circle cx="6.5" cy="-6.2" r="1.4" fill="#fff" />
-                            <path d="M-8,6 q8,8 16,0" stroke="#6b2b3a" stroke-width="2" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <ellipse cx="-17" cy="2" rx="6" ry="3.2" fill="#ffd3df" opacity="0.9" />
-                            <ellipse cx="26" cy="2" rx="6" ry="3.2" fill="#ffd3df" opacity="0.9" />
-                        </g>
-                        <g transform="translate(62,118)" fill="#1b2130" opacity="0.95">
-                            <rect x="0" y="0" width="8" height="28" rx="4">
-                                <animate attributeName="y" values="0;2;0" dur="0.9s" repeatCount="indefinite" />
-                            </rect>
-                            <rect x="26" y="0" width="8" height="28" rx="4">
-                                <animate attributeName="y" values="0;3;0" dur="0.9s" begin="0.12s"
-                                    repeatCount="indefinite" />
-                            </rect>
-                            <rect x="52" y="0" width="8" height="28" rx="4">
-                                <animate attributeName="y" values="0;1.6;0" dur="0.9s" begin="0.06s"
-                                    repeatCount="indefinite" />
-                            </rect>
-                        </g>
-                    </g>
-                </svg>
+               <div class="sheep-wrap" aria-hidden="true">
+    <!-- Картинка барашка -->
+    <img src="pngwing.com" alt="Баранчик" 
+         style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.25);">
+</div>
             </div>
 
             <div class="bubble" id="bubble">
@@ -347,5 +315,6 @@
         btn.addEventListener('touchend', () => btn.classList.remove('active'));
     </script>
 </body>
+
 
 </html>
