@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Люблю тебя, баранчик 💖</title>
+    <meta name="theme-color" content="#071028">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+        :root {
+            --bg: #071028;
+            --card: #0b1221;
+            --accent: #ff6b93;
+            --muted: #e6eef8;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0
+        }
+
+        body {
+            font-family: 'Nunito', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(closest-corner at 10% 10%, rgba(255, 107, 147, 0.04), transparent 12%), linear-gradient(180deg, var(--bg), #041026 60%);
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 920px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 14px 48px rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(6px);
+        }
+
+        h1 {
+            margin: 6px 0 8px 0;
+            font-size: clamp(22px, 4.4vw, 40px);
+            color: var(--accent);
+            font-weight: 900
+        }
+
+        p.lead {
+            margin: 0 0 16px 0;
+            font-weight: 700;
+            opacity: 0.95
+        }
+
+        .stage {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        /* Left: sheep */
+        .sheep-wrap {
+            flex: 0 0 240px;
+            max-width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        svg.sheep {
+            width: 100%;
+            height: auto
+        }
+
+        /* Right: bubble */
+        .bubble {
+            flex: 1;
+            min-width: 180px;
+            padding: 18px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, var(--glass), rgba(255, 255, 255, 0.01));
+            box-shadow: 0 8px 28px rgba(2, 6, 23, 0.45);
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+
+        .msg {
+            font-size: clamp(18px, 3vw, 28px);
+            font-weight: 900;
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .heart {
+            font-size: 1.1em;
+            transform-origin: center;
+            animation: beat 900ms infinite;
+            color: var(--accent)
+        }
+
+        @keyframes beat {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.16)
+            }
+        }
+
+        .hint {
+            margin-top: 10px;
+            font-size: 13px;
+            opacity: 0.85
+        }
+
+        .btn {
+            margin-top: 12px;
+            background: linear-gradient(180deg, var(--accent), #ff4d7b);
+            border: none;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.12);
+            transition: transform .12s ease
+        }
+
+        .btn:active {
+            transform: translateY(2px)
+        }
+
+        /* Floating hearts layer */
+        .heart-fall {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: visible;
+            z-index: 80
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -60px;
+            width: 28px;
+            height: 28px;
+            transform-origin: center;
+            opacity: 0.95;
+            user-select: none
+        }
+
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+
+            .floating-heart,
+            .heart {
+                animation: none
+            }
+        }
+
+        /* Mobile: stack vertically, make everything larger and touch friendly */
+        @media (max-width:720px) {
+            .stage {
+                flex-direction: column-reverse;
+                gap: 14px;
+                align-items: center
+            }
+
+            .sheep-wrap {
+                flex-basis: 160px;
+                max-width: 260px
+            }
+
+            .bubble {
+                width: 100%;
+                padding: 16px
+            }
+
+            .btn {
+                width: 100%;
+                padding: 14px;
+                font-size: 16px;
+                border-radius: 14px
+            }
+
+            .card {
+                padding: 16px
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width:400px) {
+            h1 {
+                font-size: 20px
+            }
+
+            .msg {
+                font-size: 18px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" role="main" aria-label="Люблю тебя, баранчик">
+        <h1>Люблю тебя, баранчик 💖</h1>
+        <p class="lead">Нажми кнопку и посыплются сердечки специально для тебяя ✨</p>
+
+        <div class="stage">
+            <div class="sheep-wrap" aria-hidden="true">
+                <!-- Friendly sheep SVG (cute, non-scary) -->
+                <svg class="sheep" viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                    role="img">
+                    <g transform="translate(10,6)">
+                        <ellipse cx="120" cy="78" rx="78" ry="48" fill="#fff" stroke="#f0f4f8" stroke-width="1.5" />
+                        <g>
+                            <circle cx="64" cy="48" r="18" fill="#fff" />
+                            <circle cx="96" cy="36" r="20" fill="#fff" />
+                            <circle cx="136" cy="34" r="22" fill="#fff" />
+                            <circle cx="170" cy="48" r="16" fill="#fff" />
+                        </g>
+                        <g transform="translate(42,68)">
+                            <ellipse cx="0" cy="0" rx="26" ry="20" fill="#fff7f8" stroke="#f2d6dd" stroke-width="1" />
+                            <circle cx="-8" cy="-4" r="5" fill="#111" />
+                            <circle cx="8" cy="-4" r="5" fill="#111" />
+                            <circle cx="-9.5" cy="-6.2" r="1.4" fill="#fff" />
+                            <circle cx="6.5" cy="-6.2" r="1.4" fill="#fff" />
+                            <path d="M-8,6 q8,8 16,0" stroke="#6b2b3a" stroke-width="2" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <ellipse cx="-17" cy="2" rx="6" ry="3.2" fill="#ffd3df" opacity="0.9" />
+                            <ellipse cx="26" cy="2" rx="6" ry="3.2" fill="#ffd3df" opacity="0.9" />
+                        </g>
+                        <g transform="translate(62,118)" fill="#1b2130" opacity="0.95">
+                            <rect x="0" y="0" width="8" height="28" rx="4">
+                                <animate attributeName="y" values="0;2;0" dur="0.9s" repeatCount="indefinite" />
+                            </rect>
+                            <rect x="26" y="0" width="8" height="28" rx="4">
+                                <animate attributeName="y" values="0;3;0" dur="0.9s" begin="0.12s"
+                                    repeatCount="indefinite" />
+                            </rect>
+                            <rect x="52" y="0" width="8" height="28" rx="4">
+                                <animate attributeName="y" values="0;1.6;0" dur="0.9s" begin="0.06s"
+                                    repeatCount="indefinite" />
+                            </rect>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="bubble" id="bubble">
+                <div class="msg" id="main-msg">
+                    <span>Люблю тебя,</span>
+                    <span style="color:var(--accent); margin-left:6px; font-weight:900;">баранчик</span>
+                    <span class="heart">♥</span>
+                </div>
+                <button class="btn" id="love-btn" aria-label="Посыпать сердечки">Нажми меня ❤️</button>
+                <div class="hint">брбр патапим </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="heart-fall" id="heart-fall" aria-hidden="true"></div>
+
+    <script>
+        // Responsive-friendly heart generator
+        const container = document.getElementById('heart-fall');
+        const btn = document.getElementById('love-btn');
+        const msg = document.getElementById('main-msg');
+        const colors = ['#ff6b93', '#ff9bb3', '#ffd1dc', '#ff87ac'];
+
+        function makeHeart(x, y, size) {
+            const el = document.createElement('div');
+            el.className = 'floating-heart';
+            const s = size || (18 + Math.random() * 34);
+            el.style.width = s + 'px';
+            el.style.height = s + 'px';
+            el.style.left = (x - s / 2) + 'px';
+            el.style.top = (y - s / 2) + 'px';
+            el.style.opacity = 0;
+            el.style.transform = `translateY(0) rotate(${Math.random() * 40}deg)`;
+            el.innerHTML = `<svg viewBox="0 0 32 29" style="width:100%;height:100%;display:block"><path d=\"M23.6 2c-2.6 0-4.6 1.7-5.6 3.3-1-1.6-3-3.3-5.6-3.3C7 2 3.7 5.1 3.7 9.3c0 6.2 12.1 12.6 13.9 13.6.2.1.5.1.7 0C15.9 21.9 28 15.5 28 9.3 28 5.1 24.7 2 23.6 2z\" fill=\"${colors[Math.floor(Math.random() * colors.length)]}\"/></svg>`;
+            container.appendChild(el);
+            requestAnimationFrame(() => {
+                const dur = 6 + Math.random() * 3;
+                el.style.transition = `transform ${dur}s cubic-bezier(.2,.8,.2,1), opacity ${dur}s linear`;
+                const drift = (Math.random() * 160 - 80);
+                el.style.transform = `translateY(-120vh) translateX(${drift}px) rotate(${360 + Math.random() * 720}deg) scale(1)`;
+                el.style.opacity = 1;
+            });
+            setTimeout(() => el.remove(), 9000 + Math.random() * 4000);
+        }
+
+        function burst(x, y, count = 10) {
+            // reduce number on small screens
+            const max = window.innerWidth < 480 ? Math.min(count, 8) : count;
+            for (let i = 0; i < max; i++) {
+                setTimeout(() => makeHeart(x + (Math.random() * 120 - 60), y + (Math.random() * 80 - 40), 14 + Math.random() * 28), i * 60);
+            }
+        }
+
+        btn.addEventListener('click', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            burst(cx, cy, 14);
+            msg.style.transition = 'transform 180ms ease';
+            msg.style.transform = 'scale(0.98)';
+            setTimeout(() => msg.style.transform = '', 180);
+        });
+
+        // Also allow tapping the bubble area
+        document.getElementById('bubble').addEventListener('click', (e) => {
+            const x = e.clientX || window.innerWidth / 2;
+            const y = e.clientY || window.innerHeight / 2;
+            burst(x, y, 8);
+        });
+
+        // Auto spawn gently
+        let autoCount = 0;
+        const autoInterval = setInterval(() => {
+            const w = window.innerWidth; const h = window.innerHeight;
+            makeHeart(w / 2 + (Math.random() * 200 - 100), h - 40, 20 + Math.random() * 20);
+            autoCount++; if (autoCount > 8) clearInterval(autoInterval);
+        }, 900);
+
+        // Improve touch response on mobile: larger hit targets
+        btn.addEventListener('touchstart', () => btn.classList.add('active'));
+        btn.addEventListener('touchend', () => btn.classList.remove('active'));
+    </script>
+</body>
+
+</html>
